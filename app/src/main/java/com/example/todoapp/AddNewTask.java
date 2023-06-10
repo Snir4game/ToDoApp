@@ -1,7 +1,6 @@
 package com.example.todoapp;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -12,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +26,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,7 +57,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setDueDate = view.findViewById(R.id.set_due_tv);
         mTaskEdit = view.findViewById(R.id.task_edittext);
         mSaveBtn = view.findViewById(R.id.save_btn);
 
@@ -107,29 +103,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
             }
         });
 
-        setDueDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-
-                int MONTH = calendar.get(Calendar.MONTH);
-                int YEAR = calendar.get(Calendar.YEAR);
-                int DAY = calendar.get(Calendar.DATE);
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month = month + 1;
-                        setDueDate.setText(dayOfMonth + "/" + month + "/" + year);
-                        dueDate = dayOfMonth + "/" + month +"/"+year;
-
-                    }
-                } , YEAR , MONTH , DAY);
-
-                datePickerDialog.show();
-            }
-        });
-
         boolean finalIsUpdate = isUpdate;
         mSaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,7 +111,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
                 String task = mTaskEdit.getText().toString();
 
                 if (task.isEmpty()){
-                    firestore.collection("task").document(id).update("task" , task , "due" , dueDate);
                     Toast.makeText(context, "Task Empty", Toast.LENGTH_SHORT).show();
 
                 } else {

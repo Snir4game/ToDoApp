@@ -51,6 +51,8 @@ public class TouchHelper extends ItemTouchHelper.SimpleCallback{
         }
     }
 
+
+    // swipe icon and background color
     @Override
     public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
         new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
