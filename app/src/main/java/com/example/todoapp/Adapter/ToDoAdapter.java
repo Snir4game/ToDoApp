@@ -2,7 +2,6 @@ package com.example.todoapp.Adapter;
 
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.todoapp.AddNewTask;
 import com.example.todoapp.MainActivity;
 import com.example.todoapp.Model.ToDoModel;
 import com.example.todoapp.R;
@@ -49,18 +47,19 @@ import java.util.List;
         public Context getContext(){
             return activity;
         }
-        public void editTask(int position){
-            ToDoModel toDoModel = todoList.get(position);
+//        public void editTask(int position){
+//            ToDoModel toDoModel = todoList.get(position);
+//
+//            Bundle bundle = new Bundle();
+//            bundle.putString("task" , toDoModel.getTask());
+//            bundle.putString("due" , toDoModel.getDue());
+//            bundle.putString("id" , toDoModel.TaskId);
+//
+//            AddNewTask addNewTask = new AddNewTask();
+//            addNewTask.setArguments(bundle);
+//            addNewTask.show(activity.getSupportFragmentManager() , addNewTask.getTag());
+//        }
 
-            Bundle bundle = new Bundle();
-            bundle.putString("task" , toDoModel.getTask());
-            bundle.putString("due" , toDoModel.getDue());
-            bundle.putString("id" , toDoModel.TaskId);
-
-            AddNewTask addNewTask = new AddNewTask();
-            addNewTask.setArguments(bundle);
-            addNewTask.show(activity.getSupportFragmentManager() , addNewTask.getTag());
-        }
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
@@ -98,9 +97,7 @@ import java.util.List;
 
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
-
                 mCheckBox = itemView.findViewById(R.id.mcheckbox);
-
             }
         }
     }
