@@ -1,15 +1,15 @@
 package com.example.todoapp;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-
-import com.example.myapplication.Adapter.ToDoAdapter;
-import com.example.myapplication.Model.ToDoModel;
+import com.example.todoapp.Adapter.ToDoAdapter;
+import com.example.todoapp.Model.ToDoModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;

@@ -1,6 +1,5 @@
 package com.example.todoapp.Adapter;
 
-public class ToDoAdapter {
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,15 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.AddNewTask;
-import com.example.myapplication.MainActivity;
-import com.example.myapplication.Model.ToDoModel;
-import com.example.myapplication.R;
+import com.example.todoapp.AddNewTask;
+import com.example.todoapp.MainActivity;
+import com.example.todoapp.Model.ToDoModel;
+import com.example.todoapp.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
@@ -106,5 +104,4 @@ import java.util.List;
             }
         }
     }
-}
 

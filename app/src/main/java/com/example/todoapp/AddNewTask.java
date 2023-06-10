@@ -20,8 +20,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.myapplication.OnDialogCloseListnert;
-import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -31,7 +29,6 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -183,8 +180,8 @@ public class AddNewTask extends BottomSheetDialogFragment {
     public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
         Activity activity = getActivity();
-        if (activity instanceof OnDialogCloseListnert){
-            ((OnDialogCloseListnert)activity).onDialogClose(dialog);
+        if (activity instanceof OnDialogCloseListner){
+            ((OnDialogCloseListner)activity).onDialogClose(dialog);
         }
     }
 }
